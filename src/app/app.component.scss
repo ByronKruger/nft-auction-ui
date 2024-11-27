@@ -1,0 +1,30 @@
+.footer-container {
+    // background-color: indigo;
+    backdrop-filter: blur(15px);
+}
+
+.nav-container {
+    background-color: mediumpurple;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+  
+/* Wrapper should fill the viewport */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+  
+/* Main content area grows to fill available space */
+.content {
+    flex: 1;
+}
+
+/* Footer stays at the bottom */
+.footer-container {
+}

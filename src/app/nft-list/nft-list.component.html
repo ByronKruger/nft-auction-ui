@@ -1,0 +1,34 @@
+@if (!isBidderNfts) {
+  <form>
+    <div class="filter-container">
+      <div class="flex">
+        <mat-form-field class="w-[250px]">
+          <mat-label>Filter by NFT owner</mat-label>
+          <input [(ngModel)]="filterByUsername" id="filterByUsername" name="filterByUsername" matInput>
+        </mat-form-field>
+          
+        <button mat-flat-button color="primary" (click)="getNftsFilteredByOwner()" class="w-[100px] ml-2 self-center mb-[22px]">Filter</button>
+      </div>
+    </div>
+  </form>
+}
+
+<div class="form-input-container">
+@if (nftstore.loading()) {
+  <div class="flex justify-center items-center spinner-container">
+    <mat-spinner></mat-spinner>
+  </div>
+}
+@else {
+@for (nft of nftstore.nftsPaginatedResult().result; track nft) {
+  <app-nft [nft]="nft"></app-nft>
+}
+}
+</div>
+
+<mat-paginator class="" [length]="100" class="mat-elevation-z1"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page"
+              (page)="handlePagination($event)">
+</mat-paginator>

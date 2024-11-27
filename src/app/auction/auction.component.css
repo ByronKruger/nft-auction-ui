@@ -1,0 +1,78 @@
+.background-blur {
+  /* height: 200px;
+  width: 100%; */
+  /* background: radial-gradient(circle, rgba(100,0,255,0.66) 4%, rgba(255,255,255,0) 90%); */
+  /* background: radial-gradient(circle, rgba(100,0,255,0.5200674019607843) 21%, rgba(255,255,255,0) 55%); */
+  /* background: radial-gradient(circle, rgba(255,255,255,0) 4%, rgba(100,0,255,0.33) 90%); */
+  /* background: radial-gradient(circle, rgba(100,0,255,0.33239233193277307) 10%, rgba(255,255,255,0) 71%); */
+  /* background: radial-gradient(circle, rgba(100,0,255,0.6629245448179272) 17%, rgba(255,255,255,0) 70%); */
+  /* background: radial-gradient(circle, rgba(100,0,255,0.5032606792717087) 17%, rgba(255,255,255,0) 70%); */
+  /* background: radial-gradient(circle, rgba(100,0,255,0.50) 48%, rgba(255,255,255,0) 52%); */
+  /* background: radial-gradient(circle, rgba(100,0,255,0.5004595588235294) 45%, rgba(255,255,255,0) 55%); */
+  /* background: radial-gradient(circle, rgba(100,0,255,0.5004595588235294) 40%, rgba(255,255,255,0) 60%); */
+  /* background: radial-gradient(circle, rgba(100,0,255,0.5032606792717087) 17%, rgba(255,255,255,0) 51%); */
+  /* background: radial-gradient(circle, rgba(100,0,255,0.5032606792717087) 17%, rgba(255,255,255,0) 67%); */
+  /* background: radial-gradient(circle, rgba(100,0,255,0.6097032563025211) 17%, rgba(255,255,255,0) 67%); */
+  /* background: radial-gradient(circle, rgba(100,0,255,0.60) 25%, rgba(255,255,255,0) 75%); */
+  background-color: rgba(100,0,255,0.60);
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(13px);
+}
+
+.spinner-container {
+  height: 200px;
+  width: 100%;
+  /* background: radial-gradient(circle, rgba(100,0,255,0.66) 4%, rgba(255,255,255,0) 90%); */
+  background: radial-gradient(circle, rgba(255,255,255,0) 4%, rgba(100,0,255,0.33) 90%);
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(13px);
+}
+
+/* Parent container for each pair of divs */
+.myContainer {
+  position: relative;
+  width: 100%;
+  /* height: 300px; */
+  /*margin: 20px; /* Optional: margin to separate the containers */
+}
+
+.background-image-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-image: url('../../assets/imgs/purple-line-bg-horizontal.jpg'); */
+    /* background-image: url('../../assets/imgs/white-square-1.png'); */
+    /* background-image: url('../../assets/imgs/white-square.png'); */
+    /* background: radial-gradient(circle, rgba(221,221,221,0.528470763305322) 0%, rgba(255,255,255,0) 100%); */
+    /* background: radial-gradient(circle, rgba(100,0,255,0.8702074579831933) 18%, rgba(255,255,255,0) 53%); */
+    background: radial-gradient(circle, rgba(97, 97, 97, 0.66) 4%, rgba(255,255,255,0) 90%);
+    background-size: cover;
+    background-position: center;
+}
+  
+.background-image-div:hover, 
+.blurred-div:hover {
+    background: radial-gradient(circle, rgba(100,0,255,0.33) 100%, rgba(255,255,255,0) 100%);
+    /* background: radial-gradient(circle, rgba(162, 100, 255, 0) 4%, rgba(255,255,255,0) 90%); */
+}
+  
+/* Blurred div */
+.blurred-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(255, 255, 255, 0.4); Semi-transparent */
+    /* backdrop-filter: blur(5px); */
+    /* backdrop-filter: blur(20px); */
+    backdrop-filter: blur(13px);
+}
+
+.myContainer {
+  backdrop-filter: blur(25px);
+}

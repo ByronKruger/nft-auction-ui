@@ -1,0 +1,44 @@
+<form [formGroup]="form">
+    <app-form-inputs-container>
+        <div class="flex justify-center mb-4">
+            <h1 class="text-2xl">Register</h1>
+        </div>
+        <div class="flex flex-col items-center">
+            <mat-form-field class="max-lg:w-[400px] w-[500px]">
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="username">
+                <mat-error>{{usernameErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="max-lg:w-[400px] w-[500px]">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password">
+                <mat-error>{{passwordErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="max-lg:w-[400px] w-[500px]">
+                <mat-label>I'm registering as a...</mat-label>
+                <mat-select [(value)]="selectedRole" (valueChange)="updateForm()" formControlName="userType">
+                @for (r of userStore.roles(); track r) {
+                    <mat-option [value]="r.value">{{r.viewValue}}</mat-option>
+                }
+                </mat-select>
+                <mat-error>{{userTypeErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+            <div [hidden]="!userStore.registerResult().errorMessage || userStore.loading()" class="mb-8">
+                <p class="text-red-600">{{ userStore.registerResult().errorMessage }}</p>
+            </div >
+
+            @if (userStore.loading()) {
+                <div class="mb-8">
+                    <mat-spinner></mat-spinner>
+                </div>
+            }
+
+            <app-common-button>
+                <button mat-flat-button color="primary" (click)="onRegister()" class="w-[250px]">Register</button>
+            </app-common-button>
+        </div>
+    </app-form-inputs-container>
+</form>

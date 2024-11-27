@@ -1,0 +1,58 @@
+<!-- <div class="flex flex-col items-start gap-x-1"> -->
+@if(navigated()) {
+<div class="flex">
+    <!-- <div class="flex grow"> -->
+    <a mat-button (click)="onBack()" color="primary"><mat-icon svgIcon="chevron-left-l" class="white-icon" aria-hidden="false" aria-label="xyz"></mat-icon>Back to home</a>
+    <!-- </div> -->
+    <!-- <div class="flex grow justify-center"> -->
+        <!-- <p>{{ navigatedArea() }}</p> -->
+    <!-- </div> -->
+    <!-- <div class="flex grow"></div> -->
+</div>
+} 
+<!-- </div> -->
+@if(!navigated()) {
+<!-- <div class="flex flexbg-stone-300"> -->
+<div class="flex justify-between">
+    <div class="flex flex-row justify-center flex-wrap gap-6">
+        @for (item of menuItems(); track item) {
+        <a (click)="navigate(item)" routerLink="{{item.route}}">
+            <!-- <div class="flex flex-col items-center justify-center w-[300px] h-[300px] p-6 blur-background rounded-md">
+                {{item.label}}
+            </div> -->
+
+            <div class="container">
+                <!-- <div class="background-image-div rounded-md" [ngStyle]="bgImageStyles[$index]"></div> -->
+                <div class="background-image-div rounded-md"></div>
+                <div class="blurred-div rounded-md flex items-center justify-center gap-x-2">
+                    <mat-icon svgIcon="{{ item.iconName }}" class="white-icon" aria-hidden="false" aria-label="xyz"></mat-icon>
+                    <p class="text-white text-xl drop-shadow menu-text">{{ item.label }}</p>
+                </div>
+            </div>
+                
+            <!-- <div class="container">
+                <div class="background-image-div"></div>
+                <div class="blurred-div">
+                    <p>Another blurred section with text</p>
+                </div>
+            </div> -->
+
+        </a>
+            <!-- <div class="img-background">x</div> -->
+        }
+        <!-- <a (click)="navigate()" routerLink="mint">Mint NFTs</a>
+        <a (click)="navigate()" routerLink="auction">Start Auction</a>
+        <a (click)="navigate()" routerLink="startAuction">View NFTs</a>
+        <a (click)="navigate()" routerLink="startAuction">View Users</a> -->
+    </div>
+</div>
+<!-- </div> -->
+}
+<div class="m-4">
+    <router-outlet></router-outlet>
+</div>
+
+<!-- <div class="body">
+    <div class="blurred-div">xyz</div>
+    <div class="background-image-div">abc</div>
+</div> -->

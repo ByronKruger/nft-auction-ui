@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: rgb(248, 248, 248) }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.mat-mdc-snack-bar-container.error-snackbar {
+    --mdc-snackbar-container-color: #FA8072;
+    --mat-mdc-snack-bar-button-color: #fff;
+    --mdc-snackbar-supporting-text-color: #fff;
+    color: white;
+}
+
+.mat-mdc-snack-bar-container.success-snackbar {
+    --mdc-snackbar-container-color: #AFE1AF;
+    --mat-mdc-snack-bar-button-color: #fff;
+    --mdc-snackbar-supporting-text-color: #fff;
+}
+
+body {
+    height: 1000px;
+    background-image: url("./assets/imgs/purple-line-bg-vertical.jpg");
+}

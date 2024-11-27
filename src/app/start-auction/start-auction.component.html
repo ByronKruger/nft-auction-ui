@@ -1,0 +1,61 @@
+{{(nftStore.nftsForForm().length === 0)}}
+@if (!nftStore.loading()) {
+<form [formGroup]="form">
+    <app-form-inputs-container>
+
+        <div class="flex justify-center mb-4">
+            <h1 class="text-2xl">Start a New Auction</h1>
+        </div>
+    <!-- <div class="flex flex-col items-center blur-background"
+        style="">
+        <div class="flex flex-col items-center justify-center p-6 rounded-lg" style="backdrop-filter: blur(25px)">  -->
+        <!-- <div class="flex flex-col items-center w-[50%] h-[300px]" style="backdrop-filter: blur(15px); border-radius: 50px; box-shadow: 0 0 5px 10px transparent;"> -->
+        <!-- <div class="flex flex-col items-center w-[50%] h-[300px]" style="backdrop-filter: blur(15px); border-radius: 0px; box-shadow: inset 0px 0px 10px 10px white;"> -->
+        <mat-form-field class="max-lg:w-[400px] w-[500px]">
+            <mat-label>Auction charity</mat-label>
+            <mat-select [(value)]="selectedCharity" (valueChange)="updateForm('charity')" 
+                formControlName="charity" [disabled]="true">
+            @for (c of userStore.charities(); track c) {
+                <mat-option [value]="c.value">{{c.viewValue}}</mat-option>
+            }
+            </mat-select>
+            <mat-hint>{{"Choose which charity will receive the proceeds of this new auction."}}</mat-hint>
+            <mat-error>{{ charityErrorMessage() }}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="max-lg:w-[400px] w-[500px]">
+            <mat-label>Auction NFT</mat-label>
+            <mat-select [(value)]="selectedNft" (valueChange)="updateForm('nft')" 
+                formControlName="nft" [disabled]="true">
+            @for (n of nftStore.nftsForForm(); track n) {
+                <mat-option [value]="n.value">{{n.viewValue}}</mat-option>
+            }
+            </mat-select>
+            <mat-hint>{{"The NFT that will be given to the winning bidder."}}</mat-hint>
+            <mat-error>{{ nftErrorMessage() }}</mat-error>
+        </mat-form-field>
+
+        <app-common-button>
+            <button mat-flat-button color="primary" (click)="onSubmit()" class="w-[250px]">Start auction</button>
+        </app-common-button>
+        <!-- </div> -->
+        <!-- </div> -->
+    <!-- </div> -->
+    </app-form-inputs-container>
+</form>
+}
+@else {
+<div class="flex justify-center items-center spinner-container">
+    <mat-spinner></mat-spinner>
+</div>
+}
+<!-- <div class="flex justify-center items-center content-container">
+    <div class="child">
+        x
+    </div>
+</div> -->
+
+<!-- <div>{{ activeAuction$ | async }}</div> -->
+<!-- <div>{{ auctionStore.activeAuction() | json }}</div>
+<div>{{ userStore.charities() | json }}</div>
+<div>{{ auctionStore.charities() | json }}</div> -->

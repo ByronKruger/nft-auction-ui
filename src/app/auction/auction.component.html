@@ -1,0 +1,132 @@
+@if(!auctionStore.activeAuction.noActiveAuction() && !auctionStore.loading()) {
+<div class="flex flex-col">
+    <div class="rounded-md p-6 background-blur">
+        <div class="flex max-md:flex-col-reverse mb-4">
+            <div class="max-md:w-[100%] w-1/3"></div>
+            <div class="flex flex-col items-center max-md:w-[100%] w-1/3">
+                <img src="{{auctionStore.activeAuction.auction.nft.image()}}" class="max-sm:w-[384px] max-md:w-[384px] max-lg:w-[480px] max-xl:w-[480px] max-2xl:w-[480px] w-[480px] rounded-lg mb-2"/>
+            </div>
+            <div class="max-md:w-[100%] w-1/3 flex justify-end max-md:mb-4">
+                @if (userService.roles().includes("ADMIN")) {
+                    <div class="flex flex-col gap-2">
+                        <!-- <button mat-flat-button color="warn" (click)="onGoBack()">Back</button> -->
+                        <button mat-flat-button color="warn" (click)="onConclude()">Conclude auction</button>
+                    </div>
+                }
+            </div>
+        </div>
+    
+        <div class="flex flex-col items-center text-white drop-shadow">
+            <p class="max-sm:w-[100%] max-md:w-[100%] w-6/12 text-justify mb-4">{{auctionStore.activeAuction.auction.nft.description()}}</p>
+            <p class="text-center text-lg font-bold mb-8">{{auctionStore.activeAuction.auction.charity()}}</p>
+        </div>
+    </div>
+
+    <div class="flex m-4 bg-white shadow-md p-4 flex-wrap gap-4">
+        <div class="max-sm:w-[100%] max-md:w-[100%] w-[47%]">
+            <form [formGroup]="form">
+                <div class="flex flex-col items-center">
+                    <mat-form-field class="w-[100%]">
+                        <mat-label>Amount</mat-label>
+                        <input matInput formControlName="bid">
+                    </mat-form-field>
+            
+                    <app-common-button>
+                        <button mat-flat-button color="primary" (click)="onSubmit()" class="w-[250px]">Bid</button>
+                    </app-common-button>
+                </div>
+            </form>
+        </div>
+        <div class="max-sm:w-[100%] max-md:w-[100%] w-[50%]">
+            <div>
+                <table mat-table [dataSource]="auctionStore.activeAuction.auction.bids()" class="mat-elevation-z8 shadow">              
+                    <ng-container matColumnDef="bidderName">
+                        <th mat-header-cell *matHeaderCellDef> Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="time">
+                        <th mat-header-cell *matHeaderCellDef> Time </th>
+                        <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="amount">
+                        <th mat-header-cell *matHeaderCellDef> Amount </th>
+                        <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+                    </ng-container>
+                    
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+}
+@else if (auctionStore.loading()) {
+<div class="flex justify-center items-center spinner-container">
+    <mat-spinner></mat-spinner>
+</div>
+}
+@else {
+<div class="flex max-md:flex-col-reverse mb-4 items-start myContainer rounded-md w-[100%] bg-white">
+    <!-- <div class="container"> -->
+        <!-- <div class="background-image-div rounded-md"></div> -->
+        <!-- <div class="flex blurred-div rounded-md"> -->
+            <!-- <div class="flex"></div> -->
+        <!-- </div> -->
+    <!-- <div class="w-[100%] bg-white"> -->
+    
+    <!-- <div class="flex">         -->
+    <div class="max-md:w-0 max-lg:w-3/12 w-1/3"></div>
+    <div class="max-md:w-[100%] max-lg:w-6/12 w-1/3">
+        <app-empty-state [emptyStateTitle]="emptyStateTitle"></app-empty-state>
+    </div>
+    <div class="flex max-md:w-[100%] justify-end pt-4 pr-4 max-lg:w-3/12 w-1/3">
+    @if (userService.roles().includes("ADMIN")) {
+        <button mat-flat-button color="primary" (click)="onGoToStartAuction()">Start auction</button>
+    }
+    </div>
+    <!-- </div> -->
+    <!-- </div> -->
+    <!-- </div> -->
+
+    <!-- <div class="rounded-md p-6 background-blur">
+        <div class="flex mb-4">
+            <div class="w-1/3"></div>
+            <div class="flex flex-col items-center w-1/3">
+                <img src="{{auctionStore.activeAuction.auction.nft.image()}}" class="w-[480px] rounded-lg mb-2"/>
+            </div>
+            <div class="w-1/3 flex justify-end">
+                @if (userService.roles().includes("ADMIN")) {
+                    <div class="flex flex-col gap-2">
+                        <button mat-flat-button color="primary" (click)="onGoToStartAuction()">Start auction</button>
+                    </div>
+                }
+            </div>
+        </div> -->
+    
+        <!-- <div class="flex flex-col items-center text-white drop-shadow">
+            <p class="w-6/12 text-justify mb-4">{{auctionStore.activeAuction.auction.nft.description()}}</p>
+            <p class="text-center text-lg font-bold mb-8">{{auctionStore.activeAuction.auction.charity()}}</p>
+        </div> -->
+    <!-- </div> -->
+</div>
+}
+
+<!-- <div class="flex flex-col">
+    <div class="flex">
+        <div class="w-1/3"></div>
+        <div class="flex flex-col items-center w-1/3">
+            <img src="../../assets/imgs/grey.jpg" class="w-[480px] rounded mb-2"/>
+            <p>{{ auctionStore.activeAuction.errorMessage() }}</p>
+        </div>
+        <div class="w-1/3 flex justify-end">
+            @if (userService.roles().includes("ADMIN")) {
+                <div class="flex flex-col gap-2">
+                    <button mat-flat-button color="primary" (click)="onGoToStartAuction()">Start auction</button>
+                </div>
+            }
+        </div>
+    </div>
+</div> -->

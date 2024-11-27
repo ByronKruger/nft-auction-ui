@@ -1,0 +1,40 @@
+<form [formGroup]="form">
+    <app-form-inputs-container>
+        <div class="flex justify-center mb-4">
+            <h1 class="text-2xl">Login</h1>
+        </div>
+        <div class="flex flex-col items-center">
+            <mat-form-field class="max-lg:w-[400px] w-[500px]">
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="username">
+                <mat-error>{{usernameErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="max-lg:w-[400px] w-[500px]">
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" type="password">
+                <mat-error>{{passwordErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+            <!-- @if (userStore.authResult().errorMessage) {
+                <div class="mb-8">
+                    <p class="text-red-600">{{ userStore.authResult().errorMessage }}</p>
+                </div>
+            } -->
+
+            <div [hidden]="!userStore.authResult().errorMessage || userStore.loading()" class="mb-8">
+                <p class="text-red-600">{{ userStore.authResult().errorMessage }}</p>
+            </div >
+
+            @if (userStore.loading()) {
+                <div class="mb-8">
+                    <mat-spinner></mat-spinner>
+                </div>
+            }
+
+            <app-common-button>
+                <button mat-flat-button color="primary" (click)="onSubmitLogin()" class="w-[250px]">Log in</button>
+            </app-common-button>
+        </div>
+    </app-form-inputs-container>
+</form>

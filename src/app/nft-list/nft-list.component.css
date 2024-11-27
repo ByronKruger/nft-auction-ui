@@ -1,0 +1,29 @@
+.form-input-container {
+    backdrop-filter: blur(13px);
+}
+
+.filter-container {
+    height: 100px;
+    width: 100%;
+    /* background: radial-gradient(circle, rgba(100,0,255,0.66) 4%, rgba(255,255,255,0) 90%); */
+    
+    background: radial-gradient(circle, rgba(255,255,255,0) 4%, rgba(100,0,255,0.33) 90%);
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(13px);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    padding: 16px 16px 0px 0px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.spinner-container {
+    height: 200px;
+    width: 100%;
+    /* background: radial-gradient(circle, rgba(100,0,255,0.66) 4%, rgba(255,255,255,0) 90%); */
+    background: radial-gradient(circle, rgba(255,255,255,0) 4%, rgba(100,0,255,0.33) 90%);
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(13px);
+  }

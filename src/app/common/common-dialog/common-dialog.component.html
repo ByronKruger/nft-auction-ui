@@ -1,0 +1,15 @@
+<!-- <div class="flex flex-col">
+    <img src="{{auctionData().nft.image}}" class="w-[250px]"/>
+</div> -->
+
+<mat-dialog-content>
+    <div class="flex flex-col items-center gap-4">
+        <h2 mat-dialog-title>Auction Concluded</h2>
+        <img src="{{auctionData().nft.image}}" class="w-[290px] rounded-lg"/>
+        <p class="text-black">Congratulations to <span class="font-extrabold text-lg">{{ auctionData().winningBidder.username }}</span> for winning the auction!</p>
+        <!-- <p class="text-black">All proceeds go to <span class="font-extrabold text-lg">{{ auctionData().winningBidder.username }}</span> for winning the auction!</p> -->
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+</mat-dialog-actions>

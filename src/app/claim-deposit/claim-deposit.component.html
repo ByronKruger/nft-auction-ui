@@ -1,0 +1,33 @@
+
+<form [formGroup]="form">
+    <app-form-inputs-container>
+        <div class="flex flex-col items-center">
+            <div class="flex justify-center mb-4">
+                <h1 class="text-2xl">Claim Deposited Funds</h1>
+            </div>
+            <mat-form-field class="w-[450px]">
+                <mat-label>Address</mat-label>
+                <input matInput formControlName="address">
+                <mat-error>{{addressErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+            <!-- @if (userStore.authResult().errorMessage) {
+                <div class="mb-8">
+                    <p class="text-red-600">{{ userStore.authResult().errorMessage }}</p>
+                </div>
+            } -->
+
+            <!-- <div [hidden]="!userStore.authResult().errorMessage || userStore.loading()" class="mb-8">
+                <p class="text-red-600">{{ userStore.authResult().errorMessage }}</p>
+            </div > -->
+
+            @if (userStore.loading()) {
+                <div class="mb-8">
+                    <mat-spinner></mat-spinner>
+                </div>
+            }
+
+            <button mat-flat-button color="primary" (click)="onSubmit()" class="w-[250px]">Claim deposit</button>
+        </div>
+    </app-form-inputs-container>
+</form>

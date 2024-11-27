@@ -1,0 +1,24 @@
+<mat-dialog-content>
+    <div class="flex flex-col items-center gap-4">
+        <!-- <h2 mat-dialog-title>{{ confirmTitle }}</h2> -->
+        <img src="../../../assets/imgs/empty-state.png" class="w-[290px] rounded-lg"/>
+        <p class="text-black">{{ "Are you sure you want to conclude the auction?" }}</p>
+        <!-- <p class="text-black">All proceeds go to <span class="font-extrabold text-lg">{{ auctionData().winningBidder.username }}</span> for winning the auction!</p> -->
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-button mat-dialog-close>{{ "Yes" }}</button>
+  <!-- <button mat-button mat-dialog-close cdkFocusInitial>{{ "Cancel" }}</button> -->
+</mat-dialog-actions>
+
+
+<!-- <mat-dialog-content>
+    <div class="flex flex-col items-center gap-4">
+        <img src="{{ confirmImage }}" class="w-[290px] rounded-lg"/>
+        <p class="text-black">{{ confirmQuestion }}</p>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-button cdkFocusInitial>{{ confirmText }}</button>
+  <button mat-button mat-dialog-close cdkFocusInitial>{{ cancelText }}</button>
+</mat-dialog-actions> -->
