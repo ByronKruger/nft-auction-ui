@@ -9,21 +9,21 @@
             [imageSendUrl]="nftImageSendUrl"
             (imageSendResponse)="handleImageSendResponse($event)"></app-image-uploader>
 
-        <mat-form-field class="max-sm:w-[250px] max-md:w-[400px] w-[500px]">
+        <mat-form-field class="max-sm:w-[350px] max-md:w-[400px] w-[500px]">
             <mat-label>Description</mat-label>
             <input matInput formControlName="description">
             <mat-hint>{{"Add a description for the new NFT."}}</mat-hint>
             <mat-error>{{decriptionErrorMessage()}}</mat-error>
         </mat-form-field>
 
-        <mat-form-field class="max-sm:w-[250px] max-md:w-[400px] w-[500px]">
+        <mat-form-field class="max-sm:w-[350px] max-md:w-[400px] w-[500px]">
             <mat-label>Brief description</mat-label>
             <input matInput formControlName="shortDescription">
             <mat-hint>{{"Add a brief description for the NFT."}}</mat-hint>
             <mat-error>{{shortDescriptionErrorMessage()}}</mat-error>
         </mat-form-field>
 
-        <mat-form-field class="max-sm:w-[250px] max-md:w-[400px] w-[500px]">
+        <mat-form-field class="max-sm:w-[350px] max-md:w-[400px] w-[500px]">
             <mat-label>Artist name</mat-label>
             <input matInput formControlName="artistName">
             <mat-hint>{{"Provide the NFT artist's name."}}</mat-hint>
