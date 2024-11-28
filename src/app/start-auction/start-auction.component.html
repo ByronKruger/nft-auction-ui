@@ -11,7 +11,7 @@
         <div class="flex flex-col items-center justify-center p-6 rounded-lg" style="backdrop-filter: blur(25px)">  -->
         <!-- <div class="flex flex-col items-center w-[50%] h-[300px]" style="backdrop-filter: blur(15px); border-radius: 50px; box-shadow: 0 0 5px 10px transparent;"> -->
         <!-- <div class="flex flex-col items-center w-[50%] h-[300px]" style="backdrop-filter: blur(15px); border-radius: 0px; box-shadow: inset 0px 0px 10px 10px white;"> -->
-        <mat-form-field class="max-lg:w-[400px] w-[500px]">
+        <mat-form-field class="max-sm:w-[250px] max-md:w-[400px] w-[500px]">
             <mat-label>Auction charity</mat-label>
             <mat-select [(value)]="selectedCharity" (valueChange)="updateForm('charity')" 
                 formControlName="charity" [disabled]="true">
@@ -23,7 +23,7 @@
             <mat-error>{{ charityErrorMessage() }}</mat-error>
         </mat-form-field>
 
-        <mat-form-field class="max-lg:w-[400px] w-[500px]">
+        <mat-form-field class="max-sm:w-[250px] max-md:w-[400px] w-[500px]">
             <mat-label>Auction NFT</mat-label>
             <mat-select [(value)]="selectedNft" (valueChange)="updateForm('nft')" 
                 formControlName="nft" [disabled]="true">
