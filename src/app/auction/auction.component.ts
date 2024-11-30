@@ -80,11 +80,13 @@ export class AuctionComponent {
   setBidEventSubjects() {
     if (this.sub)
       this.sub.unsubscribe();
+
     this.sub = this.stateEventsService.newBidEventSubject$.subscribe({
       next: (newBid: BidDto) => {
         this.auctionStore.setNewBid(newBid);
       }
     });
+    
     this.stateEventsService.auctionConcludedSubject$.subscribe({
       next: (concludedAuction: any) => {
 

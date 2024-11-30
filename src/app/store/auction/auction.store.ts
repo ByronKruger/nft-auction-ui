@@ -104,18 +104,14 @@ export const AuctionStore = signalStore(
             // auctionService.placeBid({ BidAmount: parseInt(bidAmount) }).subscribe({
                 // next: (res) => 
                 let placeholderBids = [...store.activeAuction().auction.bids];
-                console.log("placeholderBids.length");
-                console.log(placeholderBids.length);
-                console.log("newBid");
-                console.log(newBid);
                 placeholderBids.push(newBid);
-                let a = placeholderBids.slice(placeholderBids.length-4, placeholderBids.length);
+                let lastFiveBids = placeholderBids.slice(placeholderBids.length-5, placeholderBids.length);
                 patchState(store, { 
                     activeAuction: { 
                         ...store.activeAuction(), 
                         auction: {
                             ...store.activeAuction().auction,
-                            bids: [...a, newBid]
+                            bids: [...lastFiveBids]
                         }
                     },
                     currentBidAmount: newBid.amount,
